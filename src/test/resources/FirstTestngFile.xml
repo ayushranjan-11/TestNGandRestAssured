@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Learning Rest assured Test Suite">
+    <test thread-count="5" name="TestNGLearningSuite">
+        <classes>
+            <class name="learning.TestClassOne">
+                <methods>
+                    <include name="openAura"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="OrderCheck">
+        <classes>
+            <class name="learning.TestClassOne">
+                <methods>
+                    <include name="openGoogle"/>
+                    <include name="openAura"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

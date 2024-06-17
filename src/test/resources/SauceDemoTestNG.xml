@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" allow-return-values="true">
+    <parameter name="url" value="https://www.saucedemo.com/"/>
+    <parameter name="browserSelected" value="EDGE"/>
+    <!--    For return methods to run need to add <suite allow-return-values="true"> here or under <test>-->
+    <test name="loginConfirmation">
+        <classes>
+            <class name="learning.sauceDemo">
+                <methods>
+                    <include name="provideLoginCredentialsAndLogin"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="SauceDemoTestNGLoginAndVerify">
+        <classes>
+            <class name="learning.sauceDemo">
+                <methods>
+                    <include name="provideLoginCredentialsAndLogin"/>
+                    <include name="verifySuccessfulLogin"/>
+                    <include name="verifySuccessfulLoginWithReturn"/>
+                    <!--Running this include(method) will be ignored from TestNG as this has return type, not void
+                    If needed to run this method also, then XML file should have allow-return-values="true" either
+                    with suites level or test where method is called-->
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
