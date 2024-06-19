@@ -13,7 +13,7 @@ import java.time.Duration;
 
 public class sauceDemo {
     WebDriver driver ;
-    String expectedAfterLoginURL = "https://www.saucedemo.com/inventory.html";
+    String expectedURLAfterLogin = "https://www.saucedemo.com/inventory.html";
     SoftAssert softAssert = new SoftAssert();
 
 
@@ -95,7 +95,7 @@ public class sauceDemo {
     @Test
     void verifySuccessfulLogin() {
         String loginVerifyUrl = driver.getCurrentUrl();
-        softAssert.assertEquals(loginVerifyUrl, expectedAfterLoginURL);
+        softAssert.assertEquals(loginVerifyUrl, expectedURLAfterLogin);
     }
 
     @Test

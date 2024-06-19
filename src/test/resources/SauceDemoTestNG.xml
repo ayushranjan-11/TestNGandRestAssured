@@ -2,29 +2,33 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite" allow-return-values="true">
     <parameter name="url" value="https://www.saucedemo.com/"/>
-    <parameter name="browserSelected" value="EDGE"/>
+    <parameter name="browserSelected" value="Chrome"/>
     <!--    For return methods to run need to add <suite allow-return-values="true"> here or under <test>-->
     <test name="loginConfirmation">
         <classes>
             <class name="learning.sauceDemo">
                 <methods>
+<!--                    <parameter name="url" value="https://www.saucedemos.com/inventory.html"/>-->
+<!--                    This defines the precedence of the parameter, method defined parameter will have more precedence than suites level defined precedence
+                        when name of the parameter matches as same-->
                     <include name="provideLoginCredentialsAndLogin"/>
                 </methods>
             </class>
         </classes>
     </test>
-    <test name="SauceDemoTestNGLoginAndVerify">
-        <classes>
-            <class name="learning.sauceDemo">
-                <methods>
-                    <include name="provideLoginCredentialsAndLogin"/>
-                    <include name="verifySuccessfulLogin"/>
-                    <include name="verifySuccessfulLoginWithReturn"/>
-                    <!--Running this include(method) will be ignored from TestNG as this has return type, not void
-                    If needed to run this method also, then XML file should have allow-return-values="true" either
-                    with suites level or test where method is called-->
-                </methods>
-            </class>
-        </classes>
-    </test>
+<!--    <test name="SauceDemoTestNGLoginAndVerify">-->
+<!--        <classes>-->
+<!--            <class name="learning.sauceDemo">-->
+<!--                <methods>-->
+<!--                    <parameter name="url" value="https://www.saucedemo.com/inventory.html"/>-->
+<!--                    <include name="provideLoginCredentialsAndLogin"/>-->
+<!--                    <include name="verifySuccessfulLogin"/>-->
+<!--                    <include name="verifySuccessfulLoginWithReturn"/>-->
+<!--                    &lt;!&ndash;Running this include(method) will be ignored from TestNG as this has return type, not void-->
+<!--                    If needed to run this method also, then XML file should have allow-return-values="true" either-->
+<!--                    with suites level or test where method is called&ndash;&gt;-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
 </suite>
