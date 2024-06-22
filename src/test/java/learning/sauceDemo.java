@@ -12,14 +12,14 @@ import org.testng.asserts.SoftAssert;
 import java.time.Duration;
 
 public class sauceDemo {
-    WebDriver driver ;
+    WebDriver driver;
     String expectedURLAfterLogin = "https://www.saucedemo.com/inventory.html";
     SoftAssert softAssert = new SoftAssert();
 
 
     @BeforeTest
     @Parameters("browserSelected")
-    void browserSelection(String browserChoice) {
+    void browserSelection(@Optional("CHROME") String browserChoice) {
 
         switch (browserChoice.toLowerCase()) {
             case "chrome":
@@ -31,7 +31,6 @@ public class sauceDemo {
                 break;
 
             case "edge":
-
                 driver = new EdgeDriver();
                 break;
 
@@ -41,7 +40,7 @@ public class sauceDemo {
 
 
     }
-// This above @BeforeSuite driver initialization is helpful when single test under suit will run, for multiple tests
+// @BeforeSuite driver initialization is helpful when single test under suit will run, for multiple tests
 // under one suite null pointer exception was thrown
 
     @Parameters("url")
@@ -56,7 +55,6 @@ public class sauceDemo {
     void browserClose() {
         driver.quit();
         softAssert.assertAll();
-
     }
 
     @Test
